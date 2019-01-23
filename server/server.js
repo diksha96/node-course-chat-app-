@@ -15,12 +15,24 @@ app.use(express.static(publicPath));
 io.on('connection' , (socket)=>
 {
      console.log('new user connected'); // server prints this message
+
+     socket.emit('newMessage', {
+          from : 'diksha',
+          text : 'see u then', 
+          createdAt : 123413  
+     }); //serever emits an event named newEmail , alongwith the respective object
+
+     socket.on('createMessage',(msg)=>
+     {
+          console.log(msg);
+     }); // event emitted by the client side, listenend by the server side
+
+     socket.on('disconnect' , ()=>
+     {
+         console.log(' user was disconnected'); // server prints this message
+     }); //registers an event listening //connection is on
 }); //registers an event listening //connection is on
 
-io.on('disconnection' , (socket)=>
-{
-     console.log(' user was connected'); // server prints this message
-}); //registers an event listening //connection is on
 
 server.listen(port, ()=>
 {

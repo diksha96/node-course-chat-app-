@@ -10,19 +10,8 @@
     <p>Welcome to the chat app</p>
     
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-       var socket = io(); //makes a request from client to the server keep an open sockrt io // creates a connection
+    <script src="/js/index.js">
        
-        socket.on('connect' , ()=>
-        {
-             console.log('connected to the server'); //client prints this message
-        }); // connect is a event name here
-
-        socket.on('disconnect' , ()=>
-        {
-                console.log('connection is dropped'); // fires when connection is dropped //clients print this message
-        }
-        );
     </script>
 </body>
 </html>
