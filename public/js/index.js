@@ -4,10 +4,7 @@ var socket = io(); //makes a request from client to the server to keep an open s
         {
              console.log('connected to the server'); //client prints this message  // connect is a event name here
        
-              socket.emit('createMessage' , {
-                      from : 'Andrew',
-                      text : 'hey , this is andrew'
-              });  // event created from the client side
+              
         }); 
 
         socket.on('disconnect' , function()

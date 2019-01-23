@@ -16,15 +16,17 @@ io.on('connection' , (socket)=>
 {
      console.log('new user connected'); // server prints this message
 
-     socket.emit('newMessage', {
-          from : 'diksha',
-          text : 'see u then', 
-          createdAt : 123413  
-     }); //serever emits an event named newEmail , alongwith the respective object
-
+     
      socket.on('createMessage',(msg)=>
      {
           console.log(msg);
+          // io.emit messages to ech connecvted user over tge network
+          io.emit('newMessage',{
+                  
+               from : msg.from,
+               text : msg.text,
+               createdAt : 2231
+          });
      }); // event emitted by the client side, listenend by the server side
 
      socket.on('disconnect' , ()=>
